@@ -1,6 +1,5 @@
-package com.github.amobit.bot.command.genge;
+package com.github.amobit.bot.command;
 
-import com.github.amobit.bot.command.Command;
 import com.github.amobit.bot.service.SendBotMessageService;
 import com.github.amobit.db.model.Book;
 import com.github.amobit.db.service.BookService;
@@ -9,21 +8,21 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.List;
 
-public class FantasyBookCommand extends Command {
-    public final static String genre = "Фэнтези";
+public class FindTitleCommand extends Command{
+    public final static String FIND_TITLE_MESSAGE = "✨<b>Для получения подробной информации о книге, " +
+            "выполните поиск по ID</b>✨\n\n" + "<b>Список книг с таким названием</b>\n";
 
-    public final static String GENRE_MESSAGE = "✨<b>Для получения подробной информации о книге, " +
-            "выполните поиск по ID</b>✨\n\n" + "Список книг по жанру " + genre + ": ";
-
-    public FantasyBookCommand(SendBotMessageService sendBotMessageService, BookService bookService) {
+    public FindTitleCommand(SendBotMessageService sendBotMessageService, BookService bookService) {
         super(sendBotMessageService, bookService);
     }
 
     @Override
     public void execute(Update update) {
         Message message = update.getMessage();
-        sendBotMessageService.sendMessage(message.getChatId().toString(), GENRE_MESSAGE);
-        List<Book> books = bookService.getBookByGenre(genre);
+        String text = message.getText().toLowerCase();
+        String title = text.substring(text.indexOf(" ") + 1);
+        sendBotMessageService.sendMessage(message.getChatId().toString(), FIND_TITLE_MESSAGE);
+        List<Book> books = bookService.getBookByTitle(title);
         List<Book> sortedBooks = books.subList(0, Math.min(books.size(), 10));
         if (sortedBooks.size() != 0) {
             for (Book book : sortedBooks) {
@@ -32,7 +31,7 @@ public class FantasyBookCommand extends Command {
         }
         else {
             sendBotMessageService.sendMessage(message.getChatId().toString(),
-                    "Книг данного жанра не найдено!");
+                    "Книг с таким названием не найдено!");
         }
     }
 }

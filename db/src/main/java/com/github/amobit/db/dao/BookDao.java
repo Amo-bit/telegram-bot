@@ -10,6 +10,10 @@ public interface BookDao {
     Optional<Book> getBookById(long id);
 
     List<Book> getBookByAuthor(String author);
+
+    List<Book> getBookTitle(String title);
+
+    List<Book> getBookGenre(String genre);
 }
 
 

@@ -25,12 +25,14 @@ public abstract class Command {
     }
 
     public String bookToString(Book book) {
+        Long id = book.getId();
         String title = book.getTitle();
         String author = book.getAuthor();
         String genre = book.getGenre();
         String publication_date = book.getPublication_date();
         String rating = book.getRating();
-        return "Название: " + title + '\n' +
+        return  "Id: " + id + '\n' +
+                "Название: " + title + '\n' +
                 "Автор: " + author + '\n' +
                 "Жанр: " + genre + '\n' +
                 "Дата публикации: " + publication_date + '\n' +

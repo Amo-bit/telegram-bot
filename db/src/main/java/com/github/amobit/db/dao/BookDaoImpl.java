@@ -12,15 +12,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static java.sql.Types.VARCHAR;
-
 @Repository
 public class BookDaoImpl implements BookDao {
 
     private static final String SQL_GET_BOOK_BY_ID =
-            "select id, title, author, genre, publisher, publication_date, definition, rating from book where id = :id";
+            "select id, title, author, genre, publisher, publication_date, definition, " +
+                    "rating from book where id = :id";
     private static final String SQL_GET_BOOK_BY_AUTHOR =
-            "select id, title, author, genre, publisher, publication_date, definition, rating from book where lower(author) like :author";
+            "select id, title, author, genre, publisher, publication_date, definition," +
+                    " rating from book where lower(author) like :author";
+    private static final String SQL_GET_BOOK_BY_TITLE =
+            "select id, title, author, genre, publisher, publication_date, definition," +
+                    " rating from book where lower(title) like :title";
+    private static final String SQL_GET_BOOK_BY_GENRE =
+            "select id, title, author, genre, publisher, publication_date, definition," +
+                    " rating from book where lower(genre) like :genre";
+
     private final BookMapper bookMapper;
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
@@ -43,9 +50,10 @@ public class BookDaoImpl implements BookDao {
                     )
             );
         } catch (EmptyResultDataAccessException e) {
-            return Optional.empty();
+            return Optional.ofNullable(null);
         }
     }
+
     @Override
     public List<Book> getBookByAuthor(String author) {
         MapSqlParameterSource params = new MapSqlParameterSource();
@@ -55,6 +63,38 @@ public class BookDaoImpl implements BookDao {
                             SQL_GET_BOOK_BY_AUTHOR,
                             params,
                             bookMapper
+            );
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Empty list");
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public List<Book> getBookTitle(String title) {
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("title", "%" + title.toLowerCase() + "%");
+        try {
+            return jdbcTemplate.query(
+                    SQL_GET_BOOK_BY_TITLE,
+                    params,
+                    bookMapper
+            );
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println("Empty list");
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public List<Book> getBookGenre(String genre) {
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("genre", "%" + genre.toLowerCase() + "%");
+        try {
+            return jdbcTemplate.query(
+                    SQL_GET_BOOK_BY_GENRE,
+                    params,
+                    bookMapper
             );
         } catch (EmptyResultDataAccessException e) {
             System.out.println("Empty list");

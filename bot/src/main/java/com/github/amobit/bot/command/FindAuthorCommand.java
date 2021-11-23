@@ -13,7 +13,8 @@ import java.util.List;
  */
 public class FindAuthorCommand extends Command {
 
-    public final static String FIND_AUTHOR_MESSAGE = "Список книг данного автора: ";
+    public final static String FIND_AUTHOR_MESSAGE = "✨<b>Для получения подробной информации о книге, " +
+            "выполните поиск по ID</b>✨\n\n" + "Список книг автора: ";
 
     public FindAuthorCommand(SendBotMessageService sendBotMessageService, BookService bookService) {
         super(sendBotMessageService, bookService);
@@ -26,14 +27,15 @@ public class FindAuthorCommand extends Command {
         String author = text.substring(text.indexOf(" ") + 1);
         sendBotMessageService.sendMessage(message.getChatId().toString(), FIND_AUTHOR_MESSAGE);
         List<Book> books = bookService.getBook(author);
-        books.subList(0, Math.min(books.size(), 10));
-        for (Book book: books) {
-            if (book != null) {
+        List<Book> sortedBooks = books.subList(0, Math.min(books.size(), 10));
+        if (sortedBooks.size() != 0) {
+            for (Book book : sortedBooks) {
                 sendBotMessageService.sendMessage(message.getChatId().toString(), bookToString(book));
             }
-            else {
-                sendBotMessageService.sendMessage(message.getChatId().toString(), "Книг данного автора нет!");
-            }
+        }
+        else {
+            sendBotMessageService.sendMessage(message.getChatId().toString(),
+                    "Книг данного автора не найдено!");
         }
     }
 }
