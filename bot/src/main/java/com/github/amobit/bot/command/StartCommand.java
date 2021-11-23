@@ -9,12 +9,10 @@ import org.telegram.telegrambots.meta.api.objects.Update;
  */
 public class StartCommand extends Command {
 
-    public final static String START_MESSAGE = "Привет. Я Search New Book Telegram Bot. Я помогу тебе быть в курсе последних " +
-            "книг тех авторов, которые тебе интересны. Я еще маленький и только учусь.";
+    public final static String START_MESSAGE = "Привет. Я Search New Book Telegram Bot. Я помогу тебе подобрать " +
+            "книгу для прочтения и узнать какие есть книги у интересующего автора. Чтобы узнать что я умею " +
+            "выбери команду /help";
 
-    // Здесь не добавляем сервис через получение из Application Context.
-    // Потому что если это сделать так, то будет циклическая зависимость, которая
-    // ломает работу приложения.
     public StartCommand(SendBotMessageService sendBotMessageService) {
         super(sendBotMessageService);
     }

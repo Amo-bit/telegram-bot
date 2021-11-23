@@ -4,7 +4,7 @@ package com.github.amobit.bot.bot;
 import com.github.amobit.bot.command.CommandContainer;
 import com.github.amobit.bot.service.SendBotMessageServiceImpl;
 
-import com.github.amobit.db.BookService;
+import com.github.amobit.db.service.BookService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,8 +1,8 @@
-package com.github.amobit.db;
+package com.github.amobit.db.settings;
 
 import org.springframework.stereotype.Component;
 
-import static com.github.amobit.db.ConfigConstats.*;
+import static com.github.amobit.db.settings.ConfigConstants.*;
 
 
 @Component

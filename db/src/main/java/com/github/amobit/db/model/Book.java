@@ -1,4 +1,4 @@
-package com.github.amobit.db;
+package com.github.amobit.db.model;
 
 public class Book {
 

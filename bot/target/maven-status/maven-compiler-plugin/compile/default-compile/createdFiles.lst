@@ -1,5 +1,6 @@
 com\github\amobit\bot\bot\SearchNewBookTelegrambot.class
 com\github\amobit\bot\command\CommandContainer.class
+com\github\amobit\bot\command\FindGenreCommand.class
 com\github\amobit\bot\command\StopCommand.class
 com\github\amobit\bot\command\HelpCommand.class
 com\github\amobit\bot\service\SendBotMessageServiceImpl.class
@@ -8,6 +9,8 @@ com\github\amobit\bot\command\NoCommand.class
 com\github\amobit\bot\service\SendBotMessageService.class
 com\github\amobit\bot\ProjectTelegrambotApplication.class
 com\github\amobit\bot\command\Command.class
+com\github\amobit\bot\command\TopCommand.class
 com\github\amobit\bot\command\UnknownCommand.class
 com\github\amobit\bot\command\StartCommand.class
 com\github\amobit\bot\command\FindAuthorCommand.class
+com\github\amobit\bot\config\AppConfig.class
