@@ -29,12 +29,10 @@ public class SearchNewBookTelegrambot extends TelegramLongPollingBot {
     @Value("${bot.token}")
     private String token;
 
-    @Autowired
-    private BookService bookService;
     private final CommandContainer commandContainer;
 
-
-    public SearchNewBookTelegrambot() {
+    @Autowired
+    public SearchNewBookTelegrambot(BookService bookService) {
         SendBotMessageServiceImpl sendBotMessageService = new SendBotMessageServiceImpl(this);
         this.commandContainer = new CommandContainer(sendBotMessageService, bookService);
     }

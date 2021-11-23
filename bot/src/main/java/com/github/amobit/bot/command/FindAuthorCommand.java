@@ -22,8 +22,8 @@ public class FindAuthorCommand extends Command {
         String text = message.getText().toLowerCase();
         String id = text.substring(text.indexOf(" ") + 1);
         sendBotMessageService.sendMessage(message.getChatId().toString(), FIND_AUTHOR_MESSAGE);
-        if (bookService.getBook(1750) != null) {
-            sendBotMessageService.sendMessage(message.getChatId().toString(), String.valueOf(bookService.getBook(1750)));
+        if (bookService.getBook(1) != null) {
+            sendBotMessageService.sendMessage(message.getChatId().toString(), String.valueOf(bookService.getBook(1)));
         }
         else {
             sendBotMessageService.sendMessage(message.getChatId().toString(), "Книг данного автора нет.");
