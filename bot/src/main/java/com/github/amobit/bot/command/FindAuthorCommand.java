@@ -1,9 +1,12 @@
 package com.github.amobit.bot.command;
 
 import com.github.amobit.bot.service.SendBotMessageService;
+import com.github.amobit.db.model.Book;
 import com.github.amobit.db.service.BookService;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+
+import java.util.List;
 
 /**
  * Start {@link Command}.
@@ -20,13 +23,17 @@ public class FindAuthorCommand extends Command {
     public void execute(Update update) {
         Message message = update.getMessage();
         String text = message.getText().toLowerCase();
-        String id = text.substring(text.indexOf(" ") + 1);
+        String author = text.substring(text.indexOf(" ") + 1);
         sendBotMessageService.sendMessage(message.getChatId().toString(), FIND_AUTHOR_MESSAGE);
-        if (bookService.getBook(1) != null) {
-            sendBotMessageService.sendMessage(message.getChatId().toString(), String.valueOf(bookService.getBook(1)));
-        }
-        else {
-            sendBotMessageService.sendMessage(message.getChatId().toString(), "Книг данного автора нет.");
+        List<Book> books = bookService.getBook(author);
+        books.subList(0, Math.min(books.size(), 10));
+        for (Book book: books) {
+            if (book != null) {
+                sendBotMessageService.sendMessage(message.getChatId().toString(), bookToString(book));
+            }
+            else {
+                sendBotMessageService.sendMessage(message.getChatId().toString(), "Книг данного автора нет!");
+            }
         }
     }
 }

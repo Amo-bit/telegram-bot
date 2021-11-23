@@ -2,6 +2,7 @@ package com.github.amobit.bot.command;
 
 
 import com.github.amobit.bot.service.SendBotMessageService;
+import com.github.amobit.db.model.Book;
 import com.github.amobit.db.service.BookService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -21,6 +22,19 @@ public abstract class Command {
     public Command(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
         this.bookService = null;
+    }
+
+    public String bookToString(Book book) {
+        String title = book.getTitle();
+        String author = book.getAuthor();
+        String genre = book.getGenre();
+        String publication_date = book.getPublication_date();
+        String rating = book.getRating();
+        return "Название: " + title + '\n' +
+                "Автор: " + author + '\n' +
+                "Жанр: " + genre + '\n' +
+                "Дата публикации: " + publication_date + '\n' +
+                "Рейтинг: " + rating;
     }
 
     /**
