@@ -70,4 +70,17 @@ public class Book {
     public String getGenre() { return genre; }
 
     public void setGenre(String genre) { this.genre = genre; }
+
+    @Override
+    public String toString() {
+        return "Book {" +
+                "title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", author='" + author + '\'' +
+                ", publication_date='" + publication_date + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", definition='" + definition + '\'' +
+                ", rating='" + rating + '\'' +
+                '}';
+    }
 }
