@@ -1,5 +1,6 @@
-package com.github.amobit.db;
+package com.github.amobit.db.service;
 
+import com.github.amobit.db.model.Book;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

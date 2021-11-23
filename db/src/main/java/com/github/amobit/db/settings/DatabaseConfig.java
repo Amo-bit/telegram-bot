@@ -1,4 +1,4 @@
-package com.github.amobit.db;
+package com.github.amobit.db.settings;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

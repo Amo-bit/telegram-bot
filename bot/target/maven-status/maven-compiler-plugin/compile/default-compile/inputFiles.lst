@@ -9,5 +9,8 @@ D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\command\Start
 D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\command\UnknownCommand.java
 D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\command\HelpCommand.java
 D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\bot\SearchNewBookTelegrambot.java
+D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\command\TopCommand.java
+D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\config\AppConfig.java
+D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\command\FindGenreCommand.java
 D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\ProjectTelegrambotApplication.java
 D:\JavaSchool\telegram-bot\bot\src\main\java\com\github\amobit\bot\command\CommandContainer.java

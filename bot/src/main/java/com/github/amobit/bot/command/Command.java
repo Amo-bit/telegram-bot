@@ -2,7 +2,7 @@ package com.github.amobit.bot.command;
 
 
 import com.github.amobit.bot.service.SendBotMessageService;
-import com.github.amobit.db.BookService;
+import com.github.amobit.db.service.BookService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 /**
