@@ -1,0 +1,8 @@
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\entity\Book.java
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\repository\BookRepository.java
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\service\BookServiceImpl.java
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\service\BookService.java
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\ParserApplication.java
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\api\BookController.java
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\util\Genre.java
+D:\JavaSchool\telegram-bot\parser\src\main\java\com\github\amobit\parser\job\ParserBook.java

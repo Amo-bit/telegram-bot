@@ -1,0 +1,9 @@
+com\github\amobit\db\BookService.class
+com\github\amobit\db\ConnectionSettings.class
+com\github\amobit\db\Book.class
+com\github\amobit\db\BookDaoImpl.class
+com\github\amobit\db\DatabaseConfig.class
+com\github\amobit\db\BookDao.class
+com\github\amobit\db\BookMapper.class
+com\github\amobit\db\BookServiceImpl.class
+com\github\amobit\db\ConfigConstats.class

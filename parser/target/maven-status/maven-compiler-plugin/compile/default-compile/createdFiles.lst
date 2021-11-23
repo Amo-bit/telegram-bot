@@ -1,0 +1,8 @@
+com\github\amobit\parser\repository\BookRepository.class
+com\github\amobit\parser\service\BookServiceImpl.class
+com\github\amobit\parser\util\Genre.class
+com\github\amobit\parser\service\BookService.class
+com\github\amobit\parser\api\BookController.class
+com\github\amobit\parser\ParserApplication.class
+com\github\amobit\parser\entity\Book.class
+com\github\amobit\parser\job\ParserBook.class
