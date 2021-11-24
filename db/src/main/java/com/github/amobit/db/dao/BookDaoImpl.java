@@ -20,13 +20,13 @@ public class BookDaoImpl implements BookDao {
                     "rating from book where id = :id";
     private static final String SQL_GET_BOOK_BY_AUTHOR =
             "select id, title, author, genre, publisher, publication_date, definition," +
-                    " rating from book where lower(author) like :author";
+                    " rating from book where lower(author) like :author Order By rating DESC";
     private static final String SQL_GET_BOOK_BY_TITLE =
             "select id, title, author, genre, publisher, publication_date, definition," +
-                    " rating from book where lower(title) like :title";
+                    " rating from book where lower(title) like :title Order By rating DESC";
     private static final String SQL_GET_BOOK_BY_GENRE =
             "select id, title, author, genre, publisher, publication_date, definition," +
-                    " rating from book where lower(genre) like :genre";
+                    " rating from book where lower(genre) like :genre Order By rating DESC";
 
     private final BookMapper bookMapper;
     private final NamedParameterJdbcTemplate jdbcTemplate;
